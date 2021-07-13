@@ -1,7 +1,7 @@
 import discord
 import requests
 import json
-import webbrowser
+import random
 
 # creating a client variable using discord library
 client = discord.Client()
@@ -47,6 +47,11 @@ async def on_message(message):
 
     if message.content.startswith('!hello'):
         await message.channel.send('Hello!')
+    
+    # command for random number
+    if message.content.startswith('!num'):
+        randnum = random.randint(0, 100)
+        await message.channel.send(f'Your number is {randnum}')
     
     # command for inspirational quotes
     if message.content.startswith('!inspire'):
